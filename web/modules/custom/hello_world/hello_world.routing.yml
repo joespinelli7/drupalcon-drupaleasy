@@ -1,7 +1,9 @@
 hello_world.hello_controller:
-  path: '/hello-world'
+  path: '/hello-world/{name}'
   defaults:
     _title: 'Hello, World!'
     _controller: '\Drupal\hello_world\Controller\HelloWorldController'
+    name: Joe
   requirements:
     _permission: 'access content'
+    name: '[a-zA-Z]+'

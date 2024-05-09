@@ -18,11 +18,11 @@ final class HelloWorldController extends ControllerBase {
    * __invoke() means this function will immediately be run if this class is ever called on.
    * that way you don't have to specifically call any function inside the .routing.yml file
    */
-  public function __invoke(): array {
+  public function __invoke($name): array {
 
     $build['content'] = [
       '#type' => 'item',
-      '#markup' => $this->t('It works!'),
+      '#markup' => $this->t("It works! $name"),
     ];
 
     return $build;
