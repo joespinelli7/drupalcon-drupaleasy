@@ -23,19 +23,17 @@ final class BlockerForm extends FormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state): array {
-
-    $form['message'] = [
-      '#type' => 'textarea',
-      '#title' => $this->t('Message'),
-      '#required' => TRUE,
+    $form['username'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Username'),
+      '#description' => $this->t('Enter the username of the user you want to block.'),
+      '#maxlength' => 64,
+      '#size' => 64,
+      '#weight' => '0',
     ];
-
-    $form['actions'] = [
-      '#type' => 'actions',
-      'submit' => [
-        '#type' => 'submit',
-        '#value' => $this->t('Send'),
-      ],
+    $form['submit'] = [
+      '#type' => 'submit',
+      '#value' => $this->t('Block User'),
     ];
 
     return $form;
@@ -61,7 +59,7 @@ final class BlockerForm extends FormBase {
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state): void {
-    $this->messenger()->addStatus($this->t('The message has been sent.'));
+    $this->messenger()->addStatus($this->t('User has been blocked ❌'));
     $form_state->setRedirect('<front>');
   }
 

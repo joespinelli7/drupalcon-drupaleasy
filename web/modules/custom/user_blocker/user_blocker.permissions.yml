@@ -1,0 +1,3 @@
+block users:
+  title: 'Block users'
+  description: 'Provides the ability to block user accounts.'
