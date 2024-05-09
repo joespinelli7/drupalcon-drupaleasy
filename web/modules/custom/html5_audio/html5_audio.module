@@ -13,6 +13,7 @@ function html5_audio_theme($existing, $type, $theme, $path) {
     'audio_tag' => [
       'variables' => [
         'sources' => NULL,
+        'autoplay' => '',
       ],
     ],
   ];
