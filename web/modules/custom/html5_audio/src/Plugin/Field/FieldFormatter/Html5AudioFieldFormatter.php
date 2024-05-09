@@ -7,6 +7,7 @@ namespace Drupal\html5_audio\Plugin\Field\FieldFormatter;
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Field\FormatterBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Cache\Cache;
 
 /**
  * Plugin implementation of the 'HTML5 Audio' formatter.
@@ -74,8 +75,9 @@ final class Html5AudioFieldFormatter extends FormatterBase {
     // Initialize render array.
     $element = [];
 
-    // Initialize data for redner array. Render all field values as part of a single <audio> tag.
+    // Initialize data for render array. Render all field values as part of a single <audio> tag.
     $sources = [];
+//    $cache = [];
     foreach ($items as $item) {
       // Get the mime type.
       $mimetype = \Drupal::service('file.mime_type.guesser')->guessMimeType($item->uri);
@@ -83,6 +85,11 @@ final class Html5AudioFieldFormatter extends FormatterBase {
         'src' => $item->uri,
         'mimetype' => $mimetype,
       ];
+//      $cache[] = [
+//        'tags' => ['node:' . $item->getEntity()->id()],
+//        'contexts' => ['url'],
+//        'max-age' => Cache::PERMANENT,
+//      ];
     }
 
     // Configuration.
@@ -96,6 +103,7 @@ final class Html5AudioFieldFormatter extends FormatterBase {
       '#theme' => 'audio_tag',
       '#sources' => $sources,
       '#autoplay' => $autoplay,
+//      '#cache' => $cache
     ];
 
     return $element;
