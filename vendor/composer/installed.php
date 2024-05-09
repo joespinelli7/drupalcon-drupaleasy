@@ -145,6 +145,15 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+        'doctrine/common' => array(
+            'pretty_version' => '3.4.4',
+            'version' => '3.4.4.0',
+            'reference' => '0aad4b7ab7ce8c6602dfbb1e1a24581275fb9d1a',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../doctrine/common',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'doctrine/deprecations' => array(
             'pretty_version' => '1.1.3',
             'version' => '1.1.3.0',
@@ -154,12 +163,30 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+        'doctrine/event-manager' => array(
+            'pretty_version' => '2.0.0',
+            'version' => '2.0.0.0',
+            'reference' => '750671534e0241a7c50ea5b43f67e23eb5c96f32',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../doctrine/event-manager',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'doctrine/lexer' => array(
             'pretty_version' => '2.1.1',
             'version' => '2.1.1.0',
             'reference' => '861c870e8b75f7c8f69c146c7f89cc1c0f1b49b6',
             'type' => 'library',
             'install_path' => __DIR__ . '/../doctrine/lexer',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'doctrine/persistence' => array(
+            'pretty_version' => '3.3.2',
+            'version' => '3.3.2.0',
+            'reference' => '477da35bd0255e032826f440b94b3e37f2d56f42',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../doctrine/persistence',
             'aliases' => array(),
             'dev_requirement' => false,
         ),
@@ -351,6 +378,15 @@
             'replaced' => array(
                 0 => '10.2.6',
             ),
+        ),
+        'drupal/devel' => array(
+            'pretty_version' => '5.2.1',
+            'version' => '5.2.1.0',
+            'reference' => '5.2.1',
+            'type' => 'drupal-module',
+            'install_path' => __DIR__ . '/../../web/modules/contrib/devel',
+            'aliases' => array(),
+            'dev_requirement' => false,
         ),
         'drupal/recommended-project' => array(
             'pretty_version' => '1.0.0+no-version-set',
@@ -550,8 +586,8 @@
         'psr/container-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
-                0 => '1.1|2.0',
-                1 => '^1.0',
+                0 => '^1.0',
+                1 => '1.1|2.0',
             ),
         ),
         'psr/event-dispatcher' => array(

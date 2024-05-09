@@ -56,11 +56,24 @@ final class Html5AudioFieldFormatter extends FormatterBase {
    */
   public function viewElements(FieldItemListInterface $items, $langcode): array {
     $element = [];
-    foreach ($items as $delta => $item) {
-      $element[$delta] = [
-        '#markup' => $item->value,
+
+    // Render all field values as part of a single <audio> tag.
+    $sources = [];
+    foreach ($items as $item) {
+      // Get the mime type.
+      $mimetype = \Drupal::service('file.mime_type.guesser')->guessMimeType($item->uri);
+      $sources[] = [
+        'src' => $item->uri,
+        'mimetype' => $mimetype,
       ];
     }
+
+    // Put everything in an array for theming.
+    $element[] = [
+      '#theme' => 'audio_tag',
+      '#sources' => $sources,
+    ];
+
     return $element;
   }
 
