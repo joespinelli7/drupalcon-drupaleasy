@@ -5,8 +5,12 @@
 */
 #}
 
-<audio controls {{ autoplay }} preload="metadata">
-   {% for source in sources %}
-       <source src="{{ source.src }}" type="{{ source.mimetype }}" />
-   {% endfor %}
-</audio>
+{% if not sources %}
+  <h4>No HTML5 audio uploaded 😔</h4>
+{% else %}
+  {% for source in sources %}
+    <audio controls {{ autoplay }} preload="metadata">
+      <source src="{{ source.src }}" type="{{ source.mimetype }}"/>
+    </audio>
+  {% endfor %}
+{% endif %}

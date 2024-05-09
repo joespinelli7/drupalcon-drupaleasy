@@ -71,9 +71,10 @@ final class Html5AudioFieldFormatter extends FormatterBase {
    * {@inheritdoc}
    */
   public function viewElements(FieldItemListInterface $items, $langcode): array {
+    // Initialize render array.
     $element = [];
 
-    // Render all field values as part of a single <audio> tag.
+    // Initialize data for redner array. Render all field values as part of a single <audio> tag.
     $sources = [];
     foreach ($items as $item) {
       // Get the mime type.
