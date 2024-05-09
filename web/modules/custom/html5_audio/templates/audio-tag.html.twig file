@@ -1,8 +1,7 @@
 {#
 /**
  * @file
- * Theme override to display a single page.
- *
+ * Theme override to display an audio tag.
 */
 #}
 
