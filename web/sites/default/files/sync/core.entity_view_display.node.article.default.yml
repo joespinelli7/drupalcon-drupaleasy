@@ -11,8 +11,8 @@ dependencies:
     - image.style.wide
     - node.type.article
   module:
+    - html5_audio
     - image
-    - link
     - text
     - user
 _core:
@@ -30,14 +30,10 @@ content:
     weight: 2
     region: content
   field_audio_urls:
-    type: link
+    type: html5_audio_formatter
     label: above
     settings:
-      trim_length: 80
-      url_only: false
-      url_plain: false
-      rel: ''
-      target: ''
+      foo: bar
     third_party_settings: {  }
     weight: 0
     region: content
