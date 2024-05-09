@@ -22,7 +22,7 @@ final class HelloWorldController extends ControllerBase {
 
     $build['content'] = [
       '#type' => 'item',
-      '#markup' => $this->t("It works! $name"),
+      '#markup' => $this->t("Hello $name!"),
     ];
 
     return $build;

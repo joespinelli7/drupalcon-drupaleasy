@@ -3,7 +3,7 @@ hello_world.hello_controller:
   defaults:
     _title: 'Hello, World!'
     _controller: '\Drupal\hello_world\Controller\HelloWorldController'
-    name: Joe
+    name: World
   requirements:
     _permission: 'access content'
     name: '[a-zA-Z]+'
