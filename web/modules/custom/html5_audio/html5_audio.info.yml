@@ -1,0 +1,7 @@
+name: 'HTML5 Audio'
+type: module
+description: 'Provides an HTML5 audio tag formatter for Link fields.'
+package: Custom
+core_version_requirement: ^10 || ^11
+dependencies:
+  - link:link
