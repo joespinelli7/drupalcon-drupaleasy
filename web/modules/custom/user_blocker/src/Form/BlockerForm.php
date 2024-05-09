@@ -70,8 +70,11 @@ final class BlockerForm extends FormBase {
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state): void {
-    $this->messenger()->addStatus($this->t('User has been blocked ❌'));
-    $form_state->setRedirect('<front>');
+    $username = $form_state->getValue('username');
+    $user = user_load_by_name($username);
+    $user->block();
+    $user->save();
+    $this->messenger()->addMessage($this->t('User %username has been blocked ✅', ['%username' => $user->getAccountName()]));
   }
 
 }
