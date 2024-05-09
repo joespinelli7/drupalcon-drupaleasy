@@ -42,18 +42,29 @@ final class BlockerForm extends FormBase {
   /**
    * {@inheritdoc}
    */
+  /**
+   * {@inheritdoc}
+   */
   public function validateForm(array &$form, FormStateInterface $form_state): void {
-    // @todo Validate the form here.
-    // Example:
-    // @code
-    //   if (mb_strlen($form_state->getValue('message')) < 10) {
-    //     $form_state->setErrorByName(
-    //       'message',
-    //       $this->t('Message should be at least 10 characters.'),
-    //     );
-    //   }
-    // @endcode
+    parent::validateForm($form, $form_state);
+    $username = $form_state->getValue('username');
+    $user = user_load_by_name($username);
+    if (empty($user)) {
+      $form_state->setError(
+        $form['username'],
+        $this->t('User %username was not found.', ['%username' => $username])->render()
+      );
+    } else {
+      $current_user = \Drupal::currentUser();
+      if ($user->id() == $current_user->id()) {
+        $form_state->setError(
+          $form['username'],
+          $this->t('You cannot block your own account.')->render()
+        );
+      }
+    }
   }
+
 
   /**
    * {@inheritdoc}
