@@ -1,0 +1,12 @@
+uuid: 0be67b76-403a-4ba5-a3cc-ba6d4f224296
+langcode: en
+status: true
+dependencies:
+  module:
+    - user_blocker
+id: user_moderator
+label: 'User moderator'
+weight: 4
+is_admin: null
+permissions:
+  - 'block users'
